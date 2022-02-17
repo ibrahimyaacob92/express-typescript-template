@@ -1,12 +1,15 @@
 import express from "express";
-const app = express();
+import dotenv from "dotenv";
+import cors from "cors";
 
-app.use(express.json()); // import json middleware for parsing json in the body
+const app = express();
+dotenv.config();
+app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("hello world");
+	res.send("hello world");
 });
 
-app.listen(3000, () => {
-  console.log("This app listening to http://localhost:3000");
+app.listen(4000, () => {
+	console.log("This app listening to http://localhost:4000");
 });
