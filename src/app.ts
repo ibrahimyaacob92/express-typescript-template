@@ -1,13 +1,15 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import scraper from "./scraper";
 
 const app = express();
 dotenv.config();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-	res.send("hello world");
+app.get("/", async (req, res) => {
+	const result = await scraper();
+	res.send({ okay: true });
 });
 
 app.listen(4000, () => {
